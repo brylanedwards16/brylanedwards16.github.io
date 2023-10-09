@@ -5,28 +5,55 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 // HTML jQuery Objects
+
 var board = $("#board");
+
 var scoreElement = $("#score");
+
 var highScoreElement = $("#highScore");
 
+
+
 // TODO 4a: Create the snake, apple and score variables
+
 // Game Variables
 
+var snake = {};
+
+var apple = {};
+
+var score = 0;
+
 // Constant Variables
+
 var ROWS = 20;
+
 var COLUMNS = 20;
+
 var SQUARE_SIZE = 20;
+
 var KEY = {
+
   LEFT: 37,
+
   UP: 38,
+
   RIGHT: 39,
+
   DOWN: 40,
+
 };
 
+
+
 // interval variable required for stopping the update function when the game ends
+
 var updateInterval;
 
+
+
 // variable to keep track of the key (keycode) last pressed by the user
+
 var activeKey;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -34,15 +61,41 @@ var activeKey;
 ////////////////////////////////////////////////////////////////////////////////
 
 // TODO: turn on keyboard inputs
+
 $("body").on("keydown", handleKeyDown);
 
+
+
 // start the game
+
 init();
 
+
+
 function init() {
+
   // TODO 4b-2: initialize the apple
+
+   snake.body = [];
+
+   makeApple()
+
   // TODO 4c-2: initialize the snake
+
+ 
+
+ // make the first snakeSquare and set it as the head
+
+  makeSnakeSquare(10, 10);
+
+  snake.head = snake.body[0];
+
   // TODO 5a: Initialize the interval
+
+  // start update interval
+
+  updateInterval = setInterval(update, 100);
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////
