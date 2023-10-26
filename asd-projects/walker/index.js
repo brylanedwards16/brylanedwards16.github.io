@@ -134,9 +134,3 @@ $(document).on('keyup', handleKeyUp);
  
   setInterval(newFrame, 16);
 }
-
-
-
-
-
-
